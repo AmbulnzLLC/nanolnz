@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
    res.sendStatus(200);
 });
 
-app.use('/api', router);
+app.use('/', router);
 
 router.route('/appinfo').get(function(req, res) {
     res.json({
