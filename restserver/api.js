@@ -19,5 +19,12 @@ router.get('/', function(req, res) {
 
 app.use('/api', router);
 
+router.route('/appinfo').get(function(req, res) {
+    res.json({
+        name: 'nanolnz.restserver',
+        version: '1.0.0'
+    });
+});
+
 app.listen(port);
 console.log('listening on port ' + port);
