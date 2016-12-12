@@ -18,9 +18,9 @@ services:
     build:
       context: ./relayserver
       dockerfile: Dockerfile
-      image: nano-relay
-      ports:
-       - "9002:9002"
-      environment:
-        NODE_ENV: develop
-        REDIS_URL: redis://nano-redis:6379
+    image: nano-relay
+    ports:
+     - "9002:9002"
+    environment:
+      NODE_ENV: develop
+      REDIS_URL: redis://nano-redis:6379
