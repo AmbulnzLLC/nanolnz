@@ -4,3 +4,11 @@ services:
     image: redis
     ports:
      - "6379:6379"
+  nano-rest:
+    build:
+      context: ./restserver
+      dockerfile: Dockerfile
+    image: nano-rest
+    environment:
+      NODE_ENV: develop
+      REDIS_URL: redis://nano-redis:6379
