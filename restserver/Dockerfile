@@ -4,5 +4,5 @@ MAINTAINER jake@jakebladt.com
 WORKDIR /restserver
 COPY . /restserver
 EXPOSE 9001:9001
-RUN ['npm', 'install']
-ENTRYPOINT ['nodejs', 'api.js']
+CMD ['npm', 'install']
+RUN node ./api.js
