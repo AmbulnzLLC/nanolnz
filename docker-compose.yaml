@@ -9,6 +9,8 @@ services:
       context: ./restserver
       dockerfile: Dockerfile
     image: nano-rest
+    ports:
+     - "9001:9001"
     environment:
       NODE_ENV: develop
       REDIS_URL: redis://nano-redis:6379
