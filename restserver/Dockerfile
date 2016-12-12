@@ -4,5 +4,5 @@ MAINTAINER jake@jakebladt.com
 WORKDIR /restserver
 COPY . /restserver
 EXPOSE 9001:9001
-CMD ['npm', 'install']
-RUN node ./api.js
+RUN npm install
+CMD ["node", "api.js"]
