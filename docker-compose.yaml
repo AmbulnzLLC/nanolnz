@@ -24,3 +24,13 @@ services:
     environment:
       NODE_ENV: develop
       REDIS_URL: redis://nano-redis:6379
+  nano-webclient:
+    build:
+      context: ./webclient
+      dockerfile: Dockerfile
+    image: nano-webclient
+    ports:
+     - "5665:5665"
+    environment:
+      NODE_ENV: develop
+      REDIS_URL: redis://nano-redis:6379

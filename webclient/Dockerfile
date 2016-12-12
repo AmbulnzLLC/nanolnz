@@ -3,6 +3,6 @@ MAINTAINER jake@jakebladt.com
 
 WORKDIR /webclient
 COPY . /webclient
-EXPOSE 9002:5665
+EXPOSE 5665:5665
 RUN npm install
 CMD ["node", "client.js"]
