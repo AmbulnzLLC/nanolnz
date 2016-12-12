@@ -4,7 +4,8 @@
   "description": "nanolnz relay server",
   "main": "relay.js",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "socket.io": "^1.7.2"
   },
   "devDependencies": {},
   "scripts": {
