@@ -5,4 +5,4 @@ WORKDIR /restserver
 COPY . /restserver
 EXPOSE 9001:9001
 RUN ['npm', 'install']
-ENTRYPOINT ['node', 'api.js']
+ENTRYPOINT ['nodejs', 'api.js']
