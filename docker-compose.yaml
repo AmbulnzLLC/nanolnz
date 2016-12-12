@@ -20,7 +20,7 @@ services:
       dockerfile: Dockerfile
     image: nano-relay
     ports:
-     - "9002:9002"
+     - "5000:5000"
     environment:
       NODE_ENV: develop
       REDIS_URL: redis://nano-redis:6379
