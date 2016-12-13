@@ -3,8 +3,10 @@
  */
 const app = (function() {
     return {
-        config: {
-            restServerApi: ""
-        }
-    }
+        name: 'nanolnz'
+    };
 })();
+
+$(document).ready(function() {
+    app.config = envConfig;
+});
