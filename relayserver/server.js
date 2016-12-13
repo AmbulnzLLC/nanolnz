@@ -57,3 +57,14 @@ io.on('connection', function (socket) {
         console.log(message);
     });
 });
+
+var redis = require('redis');
+var sub = redis.createClient(), pub = redis.createClient();
+var lyricLine = 0;
+
+sub.on("subscribe", function(channel, count) {
+    setInterval(function() {
+        pub.publish(lyrics[lyricLine++]);
+        if(lyricLine >= lyrics.length) lyricLine = 0;
+    }, 1000);
+});
