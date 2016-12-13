@@ -15,7 +15,7 @@ $(document).ready(function() {
     app.config = envConfig;
 
     // Bind handlebars template to app
-    var src = document.getElementById('restsrc_t');
+    var src = document.getElementById('restsrc_t').innerHTML;
     app.handlebarsTemplate = Handlebars.compile(src);
     app.bindViewModel = function(data) {
         app.viewModel = data;
