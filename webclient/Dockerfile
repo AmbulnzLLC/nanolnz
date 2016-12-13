@@ -3,6 +3,7 @@ MAINTAINER jake@jakebladt.com
 
 WORKDIR /webclient
 COPY . /webclient
+COPY ./public/scripts/config.dev.js /webclient/scripts/config.js
 EXPOSE 5665:5665
 RUN npm install
 CMD ["node", "client.js"]
