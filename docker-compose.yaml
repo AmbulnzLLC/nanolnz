@@ -44,3 +44,4 @@ services:
     environment:
       NODE_ENV: develop
       REDIS_URL: redis://nano-redis:6379
+      REST_URL: http://localhost:9001/
