@@ -28,5 +28,7 @@ $(document).ready(function() {
         $.get(app.config.restServerUrl + 'appinfo')
             .done(app.bindViewModel)
             .fail(function(err) { console.log(err); })
-    })
+    });
+
+    app.bindViewModel(app.viewModel);
 });
