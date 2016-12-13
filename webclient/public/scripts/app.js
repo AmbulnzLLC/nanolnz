@@ -9,4 +9,5 @@ const app = (function() {
 
 $(document).ready(function() {
     app.config = envConfig;
+    $('#restsrc').text(app.config.restServerUrl);
 });
