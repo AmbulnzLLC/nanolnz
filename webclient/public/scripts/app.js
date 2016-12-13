@@ -3,7 +3,14 @@
  */
 const app = (function() {
     return {
-        name: 'nanolnz'
+        name: 'nanolnz',
+        viewModel: {
+            name: 'webclient',
+            version: '0.9.0.1'
+        },
+        bindToDocument: function(data) {
+            app.viewModel = data;
+        }
     };
 })();
 
