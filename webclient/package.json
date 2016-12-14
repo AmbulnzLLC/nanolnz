@@ -5,6 +5,7 @@
   "main": "client.js",
   "dependencies": {
     "express": "^4.14.0",
+    "redis": "^2.6.3",
     "serve-static": "^1.11.1"
   },
   "devDependencies": {},

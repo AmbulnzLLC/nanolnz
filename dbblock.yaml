@@ -1,0 +1,10 @@
+  mariadbserver:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    image: mariadb-nano
+    ports:
+     - "4306:4306"
+     - "5444:5444"
+     - "5567:5567"
+     - "5568:5568"
