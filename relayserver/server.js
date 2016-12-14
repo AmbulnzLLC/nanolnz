@@ -60,12 +60,15 @@ io.on('connection', function (socket) {
 
 const redis = require('redis');
 const redisUrl = process.env.REDIS_URL || 'redis://127.0.0.1:6379';
+console.log('redis at', redisUrl);
 const pub = redis.createClient(redisUrl);
 var lyricLine = 0;
 
 function startLoop(channel, count) {
     pub.publish('lyrics', 'Welcome to the lyrics channel.');
     setInterval(() => {
+        var line = lyrics[lyricLine++];
+        console.log('publishing', line);
         pub.publish('lyrics', lyrics[lyricLine++]);
         if(lyricLine >= lyrics.length) lyricLine = 0;
     }, 1333);

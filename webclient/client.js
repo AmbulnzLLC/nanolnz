@@ -7,6 +7,7 @@ const redisUrl = process.env.REDIS_URL || 'redis://127.0.0.1:6379';
 console.log('creating sub client');
 const subClient = redis.createClient(redisUrl);
 subClient.on("message", (channel, message) => console.log(channel + ":", message));
+console.log("Subscribing to lyrics.");
 subClient.subscribe("lyrics");
 
 app.use(serveStatic('public', {'index': ['index.html', 'index.htm']}));
