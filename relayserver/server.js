@@ -71,4 +71,4 @@ function startLoop(channel, count) {
     }, 1333);
 }
 
-sub.on("subscribe", setInterval);
+pub.on("subscribe", setInterval);
