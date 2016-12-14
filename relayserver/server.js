@@ -66,7 +66,7 @@ var lyricLine = 0;
 function startLoop(channel, count) {
     pub.publish('lyrics', 'Welcome to the lyrics channel.');
     setInterval(() => {
-        pub.publish(lyrics[lyricLine++]);
+        pub.publish('lyrics', lyrics[lyricLine++]);
         if(lyricLine >= lyrics.length) lyricLine = 0;
     }, 1333);
 }
