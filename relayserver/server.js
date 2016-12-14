@@ -58,13 +58,17 @@ io.on('connection', function (socket) {
     });
 });
 
-var redis = require('redis');
-var sub = redis.createClient(), pub = redis.createClient();
+const redis = require('redis');
+const redisUrl = process.env.REDIS_URL || 'redis://127.0.0.1:6379';
+const pub = redis.createClient(redisUrl);
 var lyricLine = 0;
 
-sub.on("subscribe", function(channel, count) {
-    setInterval(function() {
+function startLoop(channel, count) {
+    pub.publish('lyrics', 'Welcome to the lyrics channel.');
+    setInterval(() => {
         pub.publish(lyrics[lyricLine++]);
         if(lyricLine >= lyrics.length) lyricLine = 0;
-    }, 1000);
-});
+    }, 1333);
+}
+
+sub.on("subscribe", setInterval);
