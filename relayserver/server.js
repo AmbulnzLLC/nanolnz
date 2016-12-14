@@ -64,7 +64,7 @@ console.log('log-redis at', redisUrl);
 const pub = redis.createClient(redisUrl);
 var lyricLine = 0;
 
-function startLoop(channel, count) {
+(function startLoop(channel, count) {
     pub.publish('lyrics', 'Welcome to the lyrics channel.');
     setInterval(() => {
         var line = lyrics[lyricLine++];
@@ -72,6 +72,4 @@ function startLoop(channel, count) {
         pub.publish('lyrics', lyrics[lyricLine++]);
         if(lyricLine >= lyrics.length) lyricLine = 0;
     }, 1333);
-}
-
-pub.on("subscribe", startLoop);
+})();
