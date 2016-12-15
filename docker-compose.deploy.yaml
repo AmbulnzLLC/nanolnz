@@ -37,4 +37,3 @@ services:
       NODE_ENV: develop
       REDIS_URL: redis://nano-redis:6379
       HUB_BUILD_VERSION: 2
-
