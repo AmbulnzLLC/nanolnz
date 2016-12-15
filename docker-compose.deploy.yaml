@@ -5,10 +5,7 @@ services:
     ports:
      - "6379:6379"
   nano-rest:
-    build:
-      context: ./restserver
-      dockerfile: Dockerfile
-    image: nano-rest
+    image: jakebladt/nanolnz-restserver
     ports:
      - "9001:9001"
     environment:
@@ -16,10 +13,7 @@ services:
       REDIS_URL: redis://nano-redis:6379
       HUB_BUILD_VERSION: 2
   nano-relay:
-    build:
-      context: ./relayserver
-      dockerfile: Dockerfile
-    image: nano-relay
+    image: jakebladt/nanolnz-relay
     ports:
      - "5000:5000"
     environment:
@@ -27,10 +21,7 @@ services:
       REDIS_URL: redis://nano-redis:6379
       HUB_BUILD_VERSION: 2
   nano-webclient:
-    build:
-      context: ./webclient
-      dockerfile: Dockerfile
-    image: nano-webclient
+    image: jakebladt/nanolnz-webclient
     ports:
      - "5665:5665"
     environment:
