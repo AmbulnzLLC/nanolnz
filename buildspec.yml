@@ -17,7 +17,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - echo Pushing the Docker image...
+      - echo Pushing the relay Docker image...
       - docker push 431240526133.dkr.ecr.us-west-2.amazonaws.com/nanolnz-relay:latest
+      - echo Pushing the restserver Docker image...
       - docker push 431240526133.dkr.ecr.us-west-2.amazonaws.com/nanolnz-restserver:latest
-      
