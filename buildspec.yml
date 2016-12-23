@@ -4,16 +4,25 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - docker login -u AWS -p AQECAHj6lc4XIJw/7ln0Hc00DMek6GExHCbY4RIpTMCI58InUwAAAxkwggMVBgkqhkiG9w0BBwagggMGMIIDAgIBADCCAvsGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMKRSlu/32daOvAdG/AgEQgIICzJk3J2wj8EWKGeTidT0drYpFNhXvkxTXaZIeK5yTPG/s1ijFEuL6lfFpUdIMuGkeVVEE0PM4gLk7g5DtGFykehlRTivkQzjh/X76slMGaeD+lJlSMQKMGZ8bRkgKjluWhObOv1PyR1w3cO3itSlWDy8gJnTlTWCzRWsStrBce1uGGD6VmhAZOMuA0CzluUi5SI6NN8svhwptl/rpJnWEXA5Z7T+k38NLvmPu1AWJ1zOB65452x18+f/7YkGzTL96Heh8D0IpjJ22ZO09wV7Dhh24sGfwkjGy8KoCK30oIo1+1GEn3msONXSGtV85UKcQxq3IA2Ks1LcUmFpyFJKxILaqDzOmvh1JKYgsopTANg6aLPAet0NpPaSZEwgMTSTSyDe4i2X78w59mpOQbyPAE/97k+ihCpaiqlstSn9qJbm8Wj3SVJP+lzpx7qsRRApuZbOpcWEM/khZc65n8OYYRRMU22Ab477+SkM0SIqSub7LM0iMXha2RHRRAUAtIrl7WuQ0N653lwo9BKTiAhIxGgcrcbxnQDWvrzvVU9N8HV9P/hhHI036Scnjd+aCbnQYvvz8X/UhnhBDZkyjn9xgMHyqFTCUDDbNlk8ptfkzU/PO3CR4ReICOzCJ+PdQ1+CJ1FZQAAc0kmgLBt1SqQsaQ6kW5RlSeaQZ5Voc6zI8sHyXUDW/dQUflk3UGZ6RE5aJj1QHTGuZdwaZNuJwsTCcVYgMF1uBDmbqb1XT7u3B8lMJXH52kd0duO0d9ck+BEWJpAjOvv/YmqcRf5uYEoHaV7QmR7hXRXGUHBSV1DvvljyZVcnb4ceEwcf/xopsrIJNNWYAov7e0Ea2v0hDTYGsNwRrTWUEKqXQR/A9pbemTvoT7LjnATLJd/8v3Gt4zANpZQfa7GgADvSHH9j9Wbr5Vb63Avjz9ASxezFO0qS0GdS1JHBoSbSCwp23DTX7 -e none https://431240526133.dkr.ecr.us-west-2.amazonaws.com
-
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION)
   build:
     commands:
       - echo Build started on `date`
-      - echo Building the Docker image...
+      - echo Building the relay Docker image...
       - docker build -t nanolnz-relay ./relayserver
       - docker tag nanolnz-relay:latest 431240526133.dkr.ecr.us-west-2.amazonaws.com/nanolnz-relay:latest
+      - echo Building the restserver Docker image...
+      - docker build -t nanolnz-restserver ./restserver
+      - docker tag nanolnz-restserver:latest 431240526133.dkr.ecr.us-west-2.amazonaws.com/nanolnz-restserver:latest
+      - echo Building the webclient Docker image...
+      - docker build -t nanolnz-webclient ./webclient
+      - docker tag nanolnz-webclient:latest 431240526133.dkr.ecr.us-west-2.amazonaws.com/nanolnz-webclient:latest
   post_build:
     commands:
       - echo Build completed on `date`
-      - echo Pushing the Docker image...
+      - echo Pushing the relay Docker image...
       - docker push 431240526133.dkr.ecr.us-west-2.amazonaws.com/nanolnz-relay:latest
+      - echo Pushing the restserver Docker image...
+      - docker push 431240526133.dkr.ecr.us-west-2.amazonaws.com/nanolnz-restserver:latest
+      - echo Pushing the webclient Docker image...
+      - docker push 431240526133.dkr.ecr.us-west-2.amazonaws.com/nanolnz-webclient:latest
