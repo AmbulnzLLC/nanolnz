@@ -8,11 +8,16 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - echo Building the Docker image...
+      - echo Building the relay Docker image...
       - docker build -t nanolnz-relay ./relayserver
       - docker tag nanolnz-relay:latest 431240526133.dkr.ecr.us-west-2.amazonaws.com/nanolnz-relay:latest
+      - echo Building the restserver Docker image...
+      - docker build -t nanolnz-restserver ./restserver
+      - docker tag nanolnz-restserver:latest 431240526133.dkr.ecr.us-west-2.amazonaws.com/nanolnz-restserver:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 431240526133.dkr.ecr.us-west-2.amazonaws.com/nanolnz-relay:latest
+      - docker push 431240526133.dkr.ecr.us-west-2.amazonaws.com/nanolnz-restserver:latest
+      
