@@ -1,4 +1,4 @@
-FROM node:7.2.1
+FROM node:boron
 MAINTAINER jake@jakebladt.com
 
 WORKDIR /restserver
