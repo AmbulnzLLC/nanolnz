@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - docker login -u AWS -p AQECAHj6lc4XIJw/7ln0Hc00DMek6GExHCbY4RIpTMCI58InUwAAAxkwggMVBgkqhkiG9w0BBwagggMGMIIDAgIBADCCAvsGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMy5apO6/RPCPE1llKAgEQgIICzJN7xWxf9NaBCaquqFAg8YBlyukt/C1GKBnxRdcYQ/nqHMq75WqCMnrQ9+jbjQazbRi/Pu1e/i9vgW/FRMcm7nTm1X8nbo3ub8/2C/2okVrnijEi5W5ry6gnLM6aE25zbeKooS9t1Js2vVAK0qQbIgoHC4ORTr7qAnb4rCy9IW8MxnY92bSVteUKUeZvOEduLlO+gUjIuSdLceHuyv8loAV/ej4dN5booksOFQ5H+1y6Awn7pKMnUuJtJKDcsSAX8utxsbdu817sdfn3pFrOhYPCRnEBa14Q8eYAev5+tSO2OPTCSJZriKk3zeJN5ljbgm2uLufTRvwmuMeX75i9SwZ/c1IZFP2Rm0bIwTypTt0Op5hjGj7tybK3z96EziNs1Ry1YYfFRbaz6/cJG288K7ij1CKJFcRR6r074eijI6xB3c9AaxFndDtFakt9j+xNvB5DQLo7rbJvaGknjwF3nMqHSCQiCjj6SE/vaHioduccZ4/lQ2hzNPeEzdPGGXa077P4CrM2M0BCg3ffm6IsRffws2Xzxo/32P8YKScPub7os8CGaLD99K8ogZq9bh6e/jLXygFFb/20JovPtz0V4MjypUJcz7BAt0N4eGv1X4aV+xO7yvINgb7+s6/vvuRSvOyp5brPWAgQUGZ9fck0n5Lr4LEL6jgwVaoCfPw5fZ5JlAFM+o1YFOtwMYAnt4xwARHfonrjULv5CsJzFeOkdT8/B/UFolnmsp1Dvpd0KOL31BOVA3pNDQl8an7em4Sklx/WvBBPcGc8oOGqROygelHt8LbcdfvwGTlR2rAHf3CaiWsU6W2Q/Kgx4EmI6dBCpTh90ZcUDrew4Nfy9tmJVaIKuidJQF2nPBBNlSBIUGQx0SPHBAXhXYPSKYu0hpAaukil0mDCrmWpncidD77BYHCpw4wpKuFa7Gb1Fe7XCqaovrBjzHe9+p+N2kn5 -e none https://431240526133.dkr.ecr.us-west-2.amazonaws.com
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION)
   build:
     commands:
       - echo Build started on `date`
