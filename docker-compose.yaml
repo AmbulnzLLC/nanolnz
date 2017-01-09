@@ -1,5 +1,7 @@
 version: '2'
 services:
+  nano-nginx:
+    image: nginx:1.11
   nano-redis:
     image: redis:3.2.6
     ports:
