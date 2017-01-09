@@ -1,5 +1,11 @@
 version: '2'
 services:
+  nano-nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+     - "8080:8080"
   nano-redis:
     image: redis:3.2.6
     ports:
@@ -37,4 +43,9 @@ services:
       NODE_ENV: develop
       REDIS_URL: redis://nano-redis:6379
       HUB_BUILD_VERSION: 2
-
+  nano-nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+     - "8080:8080"
