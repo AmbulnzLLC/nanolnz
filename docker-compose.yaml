@@ -50,6 +50,6 @@ services:
     ports:
      - "8080:8080"
     environment:
-      REST_ENDPOINT:  http://nano-rest:9001
-      RELAY_ENDPOINT: http://nano-relay:5000
-
+      REST_ENDPOINT:      http://nano-rest:9001
+      RELAY_ENDPOINT:     http://nano-relay:5000
+      WEBCLIENT_ENDPOINT: http://nano-webclient:5665
