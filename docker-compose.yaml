@@ -1,7 +1,11 @@
 version: '2'
 services:
   nano-nginx:
-    image: nginx:1.11
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+     - "8080:8080"
   nano-redis:
     image: redis:3.2.6
     ports:
