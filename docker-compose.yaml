@@ -43,4 +43,13 @@ services:
       NODE_ENV: develop
       REDIS_URL: redis://nano-redis:6379
       HUB_BUILD_VERSION: 2
+  nano-nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+     - "8080:8080"
+    environment:
+      REST_ENDPOINT:  http://nano-rest:9001
+      RELAY_ENDPOINT: http://nano-relay:5000
 
